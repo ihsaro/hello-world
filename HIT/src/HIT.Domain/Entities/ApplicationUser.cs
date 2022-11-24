@@ -6,7 +6,6 @@ public class ApplicationUser : BaseEntity
 {
     private string? firstName { get; set; }
 
-    [Anonymize]
     public string FirstName
     {
         get => firstName ?? throw new InvalidOperationException(nameof(FirstName));
@@ -15,7 +14,6 @@ public class ApplicationUser : BaseEntity
 
     private string? lastName { get; set; }
 
-    [Anonymize]
     public string LastName
     {
         get => lastName ?? throw new InvalidOperationException(nameof(LastName));
@@ -24,7 +22,6 @@ public class ApplicationUser : BaseEntity
 
     private string? emailAddress { get; set; }
 
-    [Anonymize]
     public string EmailAddress
     {
         get => emailAddress ?? throw new InvalidOperationException(nameof(EmailAddress));
@@ -33,7 +30,6 @@ public class ApplicationUser : BaseEntity
 
     private string? username { get; set; }
 
-    [Anonymize]
     public string Username
     {
         get => username ?? throw new InvalidOperationException(nameof(Username));
@@ -42,7 +38,6 @@ public class ApplicationUser : BaseEntity
 
     private string? password { get; set; }
 
-    [Anonymize]
     public string Password
     {
         get => password ?? throw new InvalidOperationException(nameof(Password));
