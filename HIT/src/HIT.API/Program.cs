@@ -1,13 +1,21 @@
-// using FastEndpoints;
 using HIT.API.Routes.Configuration;
 using HIT.Application;
 using HIT.Infrastructure;
 
+var allowedOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRouteConfigurations();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: allowedOrigins,
+                      policy  =>
+                      {
+                        policy.WithOrigins("http://localhost:4200");
+                      });
+});
 
-// builder.Services.AddFastEndpoints();
+builder.Services.AddRouteConfigurations();
 
 // Add services to the container.
 builder.Services.RegisterApplicationDependencies();
@@ -29,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// app.UseFastEndpoints();
+app.UseCors(allowedOrigins);
 
 app.UseHttpsRedirection();
 
