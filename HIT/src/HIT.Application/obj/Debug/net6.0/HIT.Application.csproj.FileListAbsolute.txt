@@ -1,0 +1,15 @@
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\bin\Debug\net6.0\HIT.Application.deps.json
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\bin\Debug\net6.0\HIT.Application.dll
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\bin\Debug\net6.0\HIT.Application.pdb
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\bin\Debug\net6.0\HIT.Domain.dll
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\bin\Debug\net6.0\HIT.Domain.pdb
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\HIT.Application.csproj.AssemblyReference.cache
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\HIT.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\HIT.Application.AssemblyInfoInputs.cache
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\HIT.Application.AssemblyInfo.cs
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\HIT.Application.csproj.CoreCompileInputs.cache
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\HIT.Application.csproj.CopyComplete
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\HIT.Application.dll
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\refint\HIT.Application.dll
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\HIT.Application.pdb
+C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Application\obj\Debug\net6.0\ref\HIT.Application.dll
