@@ -1,6 +1,6 @@
 namespace HIT.Domain.Entities;
 
-public sealed class JobPostingApplication : BaseEntity
+public class JobPostingApplication : BaseEntity
 {
     private JobPosting? jobPosting { get; set; }
 
@@ -17,4 +17,6 @@ public sealed class JobPostingApplication : BaseEntity
         get => candidate ?? throw new InvalidOperationException(nameof(Candidate));
         set => candidate = value;
     }
+
+    public int MatchRate { get; set; }
 }

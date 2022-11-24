@@ -2,8 +2,6 @@ using HIT.API.Routes.Configuration;
 using HIT.Application;
 using HIT.Infrastructure;
 
-var allowedOrigins = "_myAllowSpecificOrigins";
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors();

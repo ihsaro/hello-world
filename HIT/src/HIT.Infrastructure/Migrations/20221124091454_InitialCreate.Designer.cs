@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HIT.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221123165029_InitialCreate")]
+    [Migration("20221124091454_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -213,6 +213,9 @@ namespace HIT.Infrastructure.Migrations
                     b.Property<DateTime>("LastUpdatedTimestamp")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("MatchRate")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CandidateId");
@@ -268,9 +271,6 @@ namespace HIT.Infrastructure.Migrations
                     b.Property<DateTime>("LastUpdatedTimestamp")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ProficiencyLevel")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
                     b.HasIndex("JobPostingId");
@@ -304,7 +304,7 @@ namespace HIT.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("JobSkill");
+                    b.ToTable("JobSkills");
                 });
 
             modelBuilder.Entity("HIT.Domain.Entities.CandidateCertification", b =>

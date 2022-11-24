@@ -1,6 +1,6 @@
 namespace HIT.Domain.Entities;
 
-public sealed class JobPosting : BaseEntity
+public class JobPosting : BaseEntity
 {
     private string? title { get; set; }
 
@@ -19,6 +19,7 @@ public sealed class JobPosting : BaseEntity
     }
 
     public int YearsOfExperience { get; set; }
+
     public JobLocation JobLocation { get; set; }
 
     public JobType JobType { get; set; }

@@ -1,6 +1,6 @@
 namespace HIT.Domain.Entities;
 
-public sealed class JobPostingApplicationStatus : BaseEntity
+public class JobPostingApplicationStatus : BaseEntity
 {
     private JobPostingApplication? jobPostingApplication { get; set; }
 
