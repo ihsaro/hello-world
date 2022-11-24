@@ -48,7 +48,30 @@ public sealed class JobPostingRoutes : IRoute
             });
         }
 
-        return Results.Ok();
+        var jobSkills = await jobSkillRepository.GetAll(token: token);
+
+        var p = new Response()
+        {
+            Id = result.Id,
+            Title = result.Title,
+            Description = result.Description,
+            YearsOfExperience = result.YearsOfExperience,
+            JobLocation = result.JobLocation,
+            JobType = result.JobType,
+            JobStatus = result.JobStatus
+        };
+
+        p.JobSkills = new List<JobSkill>();
+
+        if (request.Skills is not null)
+        {
+            request.Skills.ForEach(skill =>
+            {
+                p.JobSkills.Add(jobSkills.First(x => x.Id == skill));
+            });
+        }
+
+        return Results.Ok(p);
     }
 
     private async Task<IResult> GetAll(
