@@ -10,3 +10,15 @@ C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Domain\obj\Debug\net6.0\
 C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Domain\obj\Debug\net6.0\refint\HIT.Domain.dll
 C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Domain\obj\Debug\net6.0\HIT.Domain.pdb
 C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Domain\obj\Debug\net6.0\ref\HIT.Domain.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\bin\Debug\net6.0\HIT.Domain.deps.json
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\bin\Debug\net6.0\HIT.Domain.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\bin\Debug\net6.0\HIT.Domain.pdb
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\obj\Debug\net6.0\HIT.Domain.csproj.AssemblyReference.cache
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\obj\Debug\net6.0\HIT.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\obj\Debug\net6.0\HIT.Domain.AssemblyInfoInputs.cache
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\obj\Debug\net6.0\HIT.Domain.AssemblyInfo.cs
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\obj\Debug\net6.0\HIT.Domain.csproj.CoreCompileInputs.cache
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\obj\Debug\net6.0\HIT.Domain.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\obj\Debug\net6.0\refint\HIT.Domain.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\obj\Debug\net6.0\HIT.Domain.pdb
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Domain\obj\Debug\net6.0\ref\HIT.Domain.dll

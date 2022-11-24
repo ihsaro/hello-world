@@ -1,0 +1,25 @@
+<h2 mat-dialog-title style="text-align: center;">Add Example</h2>
+<div class="form-container">
+    <form [formGroup]="exampleForm">
+        <mat-form-field class="field-wrapper" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="e.g tom" formControlName="name">
+            <mat-error *ngIf="formError('name', 'required')">Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="field-wrapper" appearance="outline">
+            <mat-label>Age</mat-label>
+            <input matInput placeholder="e.g 19" formControlName="age">
+            <mat-error *ngIf="formError('age', 'required')">Age is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="field-wrapper" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="e.g mu" formControlName="name">
+            <mat-error *ngIf="formError('address', 'required')">Address is required</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+    <button type="submit" mat-raised-button>Submit</button>
+    <button [mat-dialog-close]="true" mat-raised-button color="accent">Close</button>
+</mat-dialog-actions>

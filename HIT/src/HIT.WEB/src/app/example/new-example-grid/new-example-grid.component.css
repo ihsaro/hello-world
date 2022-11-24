@@ -1,0 +1,16 @@
+.form-container {
+    text-align: center;
+}
+
+ button {
+    margin: 2px 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mat-form-field {
+    width: 90%;
+}

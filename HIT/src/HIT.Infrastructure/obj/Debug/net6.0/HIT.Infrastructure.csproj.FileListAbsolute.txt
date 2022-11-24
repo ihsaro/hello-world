@@ -15,3 +15,20 @@ C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Infrastructure\obj\Debug
 C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\refint\HIT.Infrastructure.dll
 C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\HIT.Infrastructure.pdb
 C:\Users\ihossanee\Documents\Hackathon 2022\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\ref\HIT.Infrastructure.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\bin\Debug\net6.0\HIT.Infrastructure.deps.json
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\bin\Debug\net6.0\HIT.Infrastructure.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\bin\Debug\net6.0\HIT.Infrastructure.pdb
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\bin\Debug\net6.0\HIT.Application.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\bin\Debug\net6.0\HIT.Domain.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\bin\Debug\net6.0\HIT.Application.pdb
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\bin\Debug\net6.0\HIT.Domain.pdb
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\HIT.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\HIT.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\HIT.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\HIT.Infrastructure.AssemblyInfo.cs
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\HIT.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\HIT.Infrastructure.csproj.CopyComplete
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\HIT.Infrastructure.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\refint\HIT.Infrastructure.dll
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\HIT.Infrastructure.pdb
+C:\Users\tappadoo\Desktop\hello-world\HIT\src\HIT.Infrastructure\obj\Debug\net6.0\ref\HIT.Infrastructure.dll
