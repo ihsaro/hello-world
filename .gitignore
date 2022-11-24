@@ -1,3 +1,4 @@
-/HIT/src/HIT.WEB/.angular
-/HIT/src/HIT.API/obj
-bin
+**/obj/*
+**/bin/*
+**/node_modules/*
+**/.vs/*
