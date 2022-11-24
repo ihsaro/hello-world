@@ -72,7 +72,7 @@ namespace HIT.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "JobSkill",
+                name: "JobSkills",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -85,7 +85,7 @@ namespace HIT.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_JobSkill", x => x.Id);
+                    table.PrimaryKey("PK_JobSkills", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -140,6 +140,7 @@ namespace HIT.Infrastructure.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     JobPostingId = table.Column<int>(type: "INTEGER", nullable: false),
                     CandidateId = table.Column<int>(type: "INTEGER", nullable: false),
+                    MatchRate = table.Column<int>(type: "INTEGER", nullable: false),
                     CreatedTimestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     LastUpdatedTimestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -168,7 +169,6 @@ namespace HIT.Infrastructure.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     JobPostingId = table.Column<int>(type: "INTEGER", nullable: false),
                     JobSkillId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ProficiencyLevel = table.Column<int>(type: "INTEGER", nullable: false),
                     CreatedTimestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     LastUpdatedTimestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -182,9 +182,9 @@ namespace HIT.Infrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_JobPostingSkills_JobSkill_JobSkillId",
+                        name: "FK_JobPostingSkills_JobSkills_JobSkillId",
                         column: x => x.JobSkillId,
-                        principalTable: "JobSkill",
+                        principalTable: "JobSkills",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -282,7 +282,7 @@ namespace HIT.Infrastructure.Migrations
                 name: "JobPostingApplications");
 
             migrationBuilder.DropTable(
-                name: "JobSkill");
+                name: "JobSkills");
 
             migrationBuilder.DropTable(
                 name: "Candidates");

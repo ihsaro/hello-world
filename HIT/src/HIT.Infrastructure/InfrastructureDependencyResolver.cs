@@ -4,7 +4,6 @@ using HIT.Infrastructure.Persistence;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using HIT.Infrastructure.Repositories;
-using HIT.Infrastructure.Persistence.Repositories;
 
 namespace HIT.Infrastructure;
 

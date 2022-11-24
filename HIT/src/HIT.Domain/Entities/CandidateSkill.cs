@@ -1,6 +1,6 @@
 namespace HIT.Domain.Entities;
 
-public sealed class CandidateSkill : BaseEntity
+public class CandidateSkill : BaseEntity
 {
     private Candidate? candidate { get; set; }
 

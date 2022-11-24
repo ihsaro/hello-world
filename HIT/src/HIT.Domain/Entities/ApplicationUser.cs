@@ -1,6 +1,6 @@
 namespace HIT.Domain.Entities;
 
-public sealed class ApplicationUser : BaseEntity
+public class ApplicationUser : BaseEntity
 {
     private string? firstName { get; set; }
 

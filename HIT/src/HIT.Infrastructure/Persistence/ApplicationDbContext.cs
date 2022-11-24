@@ -6,8 +6,6 @@ namespace HIT.Infrastructure.Persistence;
 
 public class ApplicationDbContext : DbContext
 {
-    private readonly IConfiguration _configuration;
-
     public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
     public DbSet<Candidate> Candidates => Set<Candidate>();
     public DbSet<CandidateCertification> CandidateCertifications => Set<CandidateCertification>();
@@ -15,11 +13,11 @@ public class ApplicationDbContext : DbContext
     public DbSet<JobPosting> JobPostings => Set<JobPosting>();
     public DbSet<JobPostingApplication> JobPostingApplications => Set<JobPostingApplication>();
     public DbSet<JobPostingApplicationStatus> JobPostingApplicationStatuses => Set<JobPostingApplicationStatus>();
+    public DbSet<JobSkill> JobSkills => Set<JobSkill>();
     public DbSet<JobPostingSkill> JobPostingSkills => Set<JobPostingSkill>();
 
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> context, IConfiguration configuration) : base(context)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> context) : base(context)
     {
-        _configuration = configuration;
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
