@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Skill } from 'src/app/shared/models/skill';
 import { environment } from 'src/environments/environment';
 
@@ -14,7 +14,9 @@ export class SkillApiService {
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   create(newSkill: Skill): Observable<Skill> {
-   return this.httpClient.post<Skill>(this.api, newSkill)
+   return this.httpClient.post<Skill>(this.api, newSkill).pipe(
+    tap((res) => console.log(res))
+   )
   }
 
   GetAll(): Observable<Skill[]> {

@@ -34,15 +34,17 @@ export class SkillsDataSource implements DataSource<SkillWithCategory> {
                     this.skillService.Skills$.pipe(
                       map((res: Skill[]) => {
                         let skillsWithcategories: SkillWithCategory[] = res.map((res: Skill) => {
-                          let skillCategory: SkillWithCategory = {...res,category: SkillCategoryType[res.category] };
+                          console.log(SkillCategoryType[res.skillCategory])
+                          let skillCategory: SkillWithCategory = {...res, skillCategory: SkillCategoryType[res.skillCategory] };
                           return skillCategory;
                         })
+                        console.log(skillsWithcategories)
                         return skillsWithcategories;
                       }),
                       tap((res: SkillWithCategory[]) => {
                         this.length = res.length;
                         if (filterValue != '') {
-                          res = res.filter(data => data.category.toLocaleLowerCase().includes(filterValue) || data.description.toLocaleLowerCase().includes(filterValue) || data.name.toLocaleLowerCase().includes(filterValue))
+                          res = res.filter(data => data.skillCategory.toLocaleLowerCase().includes(filterValue) || data.description.toLocaleLowerCase().includes(filterValue) || data.name.toLocaleLowerCase().includes(filterValue))
                         }
                         switch (direction) {
                           case 'asc': {

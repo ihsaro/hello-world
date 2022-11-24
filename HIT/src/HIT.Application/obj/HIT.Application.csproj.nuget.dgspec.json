@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\hello-world\\HIT\\src\\HIT.Application\\HIT.Application.csproj": {}
+    "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Application\\HIT.Application.csproj": {}
   },
   "projects": {
-    "C:\\git\\hello-world\\HIT\\src\\HIT.Application\\HIT.Application.csproj": {
+    "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Application\\HIT.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\hello-world\\HIT\\src\\HIT.Application\\HIT.Application.csproj",
+        "projectUniqueName": "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Application\\HIT.Application.csproj",
         "projectName": "HIT.Application",
-        "projectPath": "C:\\git\\hello-world\\HIT\\src\\HIT.Application\\HIT.Application.csproj",
-        "packagesPath": "C:\\Users\\ihossanee\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\hello-world\\HIT\\src\\HIT.Application\\obj\\",
+        "projectPath": "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Application\\HIT.Application.csproj",
+        "packagesPath": "C:\\Users\\tappadoo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ihossanee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tappadoo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\git\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj": {
-                "projectPath": "C:\\git\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj"
+              "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj": {
+                "projectPath": "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj"
               }
             }
           }
@@ -69,21 +69,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\git\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj": {
+    "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj",
         "projectName": "HIT.Domain",
-        "projectPath": "C:\\git\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj",
-        "packagesPath": "C:\\Users\\ihossanee\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\hello-world\\HIT\\src\\HIT.Domain\\obj\\",
+        "projectPath": "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Domain\\HIT.Domain.csproj",
+        "packagesPath": "C:\\Users\\tappadoo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tappadoo\\Desktop\\hello-world\\HIT\\src\\HIT.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ihossanee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tappadoo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -124,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -47,7 +47,7 @@ export class AddSkillFormComponent implements OnInit {
       console.log(this.skillForm.value)
       let x: Skill = {
         name: this.skillForm.value.name || "",
-        category: Number(this.skillForm.value.category) || SkillCategoryType.MANAGEMENT,
+        skillCategory: Number(this.skillForm.value.category) || SkillCategoryType.MANAGEMENT,
         description: this.skillForm.value.description || ""
         
       }

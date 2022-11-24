@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Observable, tap, BehaviorSubject, of } from 'rxjs';
+import { SkillCategoryType } from 'src/app/shared/enum/skill-category-type.enum';
 import { Skill } from 'src/app/shared/models/skill';
+import { SkillWithCategory } from 'src/app/shared/models/skill-with-category';
 import { AddSkillFormComponent } from 'src/app/skill/add-skill-form/add-skill-form.component';
 import { SkillApiService } from './skill-api.service';
 
@@ -13,37 +15,37 @@ export class SkillsService {
     {
       name: ".Net6",
       description: "Programming Language",
-      category: 0
+      skillCategory: 0
     },
     {
       name: ".Communication Skills",
       description: "Team",
-      category: 1
+      skillCategory: 1
     },
     {
       name: "Angular",
       description: "Frontend Framework",
-      category: 0
+      skillCategory: 0
     },
     {
       name: "Azure",
       description: "Cloud",
-      category: 0
+      skillCategory: 0
     },
     {
       name: "Css",
       description: "styling",
-      category: 0
+      skillCategory: 0
     },
     {
       name: "Leadership",
       description: "team",
-      category: 1
+      skillCategory: 1
     },
     {
       name: "Power BI",
       description: "Programming Language",
-      category: 2
+      skillCategory: 2
     },
   ]
   constructor(private api: SkillApiService){}
@@ -54,6 +56,9 @@ export class SkillsService {
   addSkill(newSkill: Skill, dialog: MatDialogRef<AddSkillFormComponent>) {
     return this.api.create(newSkill).pipe(
       tap((res : Skill) => {
+        let x: SkillWithCategory = {
+          ...res, skillCategory: SkillCategoryType[res.skillCategory]
+        } 
         this.Skills$$.next([res, ...this.Skills$$.getValue()])
         dialog.close();
       })
