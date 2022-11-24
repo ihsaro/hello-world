@@ -61,8 +61,8 @@ export class SkillsService {
   }
 
   loadSkill(): Observable<Skill[]> {
-  //   return this.api.GetAll().pipe(
-    return of(this.examples).pipe(
+    return this.api.GetAll().pipe(
+    // return of(this.examples).pipe(
       tap((res: Skill[]) => {
         this.Skills$$.next(res)
       })

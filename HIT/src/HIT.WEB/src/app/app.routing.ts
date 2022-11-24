@@ -24,6 +24,10 @@ export const AppRoutes: Routes = [
       {
         path: 'skill',
         loadChildren: () => import('./skill/skill.module').then(m => m.SkillModule)
+      },
+      {
+        path: 'job-adverts',
+        loadChildren: () => import('./job-advert/job-advert.module').then(m => m.JobAdvertModule)
       }
     ]
   }

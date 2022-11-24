@@ -1,0 +1,75 @@
+<h2 mat-dialog-title style="text-align: center;">Add Example</h2>
+<div class="form-container">
+    <form [formGroup]="jobForm">
+        <mat-grid-list cols="2" rowHeight="3:1">
+            <mat-grid-tile>
+                <mat-form-field class="field-wrapper" appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="e.g tom" formControlName="title">
+                    <mat-error *ngIf="formError('title', 'required')">Title is required</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="field-wrapper" appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <input matInput placeholder="e.g job is" formControlName="description">
+                    <mat-error *ngIf="formError('description', 'required')">Description is required</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="field-wrapper" appearance="outline">
+                    <mat-label>Years of Experience</mat-label>
+                    <input matInput placeholder="e.g mu" formControlName="yearsOfExperience">
+                    <mat-error *ngIf="formError('yearsOfExperience', 'required')">Years of Experience is required</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="field-wrapper" appearance="outline">
+                    <mat-label>Job Location</mat-label>
+                    <mat-select formControlName="jobLocation">
+                        <mat-option *ngFor="let loc of jobLocs" [value]="loc.value">{{loc.name}}</mat-option>
+                      </mat-select>
+                    <mat-error *ngIf="formError('jobLocation', 'required')">Job Location is required</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field class="field-wrapper" appearance="outline">
+                    <mat-label>Guild</mat-label>
+                    <mat-select formControlName="jobtype">
+                        <mat-option *ngFor="let guild of guilds" [value]="guild.value">{{guild.name}}</mat-option>
+                      </mat-select>
+                    <mat-error *ngIf="formError('jobtype', 'required')">Guild is required</mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+           
+            <mat-grid-tile>
+                <mat-form-field class="mat-field" appearance="outline">
+                    <mat-label>Skill</mat-label>
+                    <mat-chip-list formControlName="jobSkills" #chipList>
+                        <mat-chip *ngFor="let skill of this.jobForm.controls['jobSkills'].value" (removed)="removeSkill(skill)">
+                            {{skill.name}}
+                            <button matChipRemove>
+                                <mat-icon>cancel</mat-icon>
+                              </button>
+                        </mat-chip>
+                        <input placeholder="Add Skill" [matAutocomplete]="auto" [matChipInputFor]="chipList" [formControl]="skillFilterControl"  [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addSkillToForm($event)"> 
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedAddSkill($event)">
+                        <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill" >
+                            {{skill.name}}
+                          </mat-option>
+                    </mat-autocomplete>
+                    <!-- <mat-error *ngIf="formError('skills', 'required')">Skills is required</mat-error> -->
+                </mat-form-field>
+            </mat-grid-tile>
+           
+        </mat-grid-list>
+        
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+    <button type="submit" color="primary" (click)="onSubmit()" mat-raised-button>Submit</button>
+    <button [mat-dialog-close]="true" mat-raised-button color="warn">Close</button>
+</mat-dialog-actions>

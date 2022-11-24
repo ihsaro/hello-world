@@ -11,7 +11,7 @@ const MENUITEMS = [
   { name: 'example', type: 'link', icon: 'av_timer' },
   { name: 'Candidates', type: 'link', icon: 'groups' },
   { name: 'skill', type: 'link', icon: 'stars' },
-  { name: 'Job Adverts', type: 'link', icon: 'work' },
+  { name: 'job-adverts', type: 'link', icon: 'work' },
   { name: 'Administration', type: 'link', icon: 'admin_panel_settings' },
 ];
 
