@@ -51,7 +51,7 @@ export class AddSkillFormComponent implements OnInit {
         description: this.skillForm.value.description || ""
         
       }
-      this.skillService.addSkill(x, this.dialogRef);
+      this.skillService.addSkill(x, this.dialogRef).subscribe();
     } 
     this.skillForm.markAllAsTouched();
   }

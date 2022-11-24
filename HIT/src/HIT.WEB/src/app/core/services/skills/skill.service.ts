@@ -57,12 +57,12 @@ export class SkillsService {
         this.Skills$$.next([res, ...this.Skills$$.getValue()])
         dialog.close();
       })
-    ).subscribe();
+    );
   }
 
   loadSkill(): Observable<Skill[]> {
-    return this.api.GetAll().pipe(
-    // return of(this.examples).pipe(
+  //   return this.api.GetAll().pipe(
+    return of(this.examples).pipe(
       tap((res: Skill[]) => {
         this.Skills$$.next(res)
       })
