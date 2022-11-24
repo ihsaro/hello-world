@@ -6,7 +6,6 @@ public class Candidate : BaseEntity
 {
     private string? firstName { get; set; }
 
-    [Anonymize]
     public string FirstName
     {
         get => firstName ?? throw new InvalidOperationException(nameof(FirstName));
@@ -15,7 +14,6 @@ public class Candidate : BaseEntity
 
     private string? lastName { get; set; }
 
-    [Anonymize]
     public string LastName
     {
         get => lastName ?? throw new InvalidOperationException(nameof(LastName));
@@ -24,7 +22,6 @@ public class Candidate : BaseEntity
 
     private string? emailAddress { get; set; }
 
-    [Anonymize]
     public string EmailAddress
     {
         get => emailAddress ?? throw new InvalidOperationException(nameof(EmailAddress));
@@ -33,7 +30,6 @@ public class Candidate : BaseEntity
 
     private string? linkedInURL { get; set; }
 
-    [Anonymize]
     public string LinkedInURL
     {
         get => linkedInURL ?? throw new InvalidOperationException(nameof(LinkedInURL));
@@ -44,7 +40,6 @@ public class Candidate : BaseEntity
 
     private string? candidateLocation { get; set; }
 
-    [Anonymize]
     public string CandidateLocation
     {
         get => candidateLocation ?? throw new InvalidOperationException(nameof(CandidateLocation));
