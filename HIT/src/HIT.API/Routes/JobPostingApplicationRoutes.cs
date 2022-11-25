@@ -13,7 +13,7 @@ public sealed class JobPostingApplicationRoutes : IRoute
     public void ConfigureRoutes(WebApplication app)
     {
         app
-            .MapPut("api/v1/job-posting-applications/{id}/{phase}", UpdateJobApplicationStatus)
+            .MapGet("api/v1/job-posting-applications/{id}/{phase}", UpdateJobApplicationStatus)
             .AllowAnonymous();
     }
 

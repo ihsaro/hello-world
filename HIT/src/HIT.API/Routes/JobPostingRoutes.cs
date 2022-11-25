@@ -118,26 +118,68 @@ public sealed class JobPostingRoutes : IRoute
         [FromQuery] ApplicationPhase? phase,
         [FromServices] IGenericRepository<JobPostingApplication> repository,
         [FromServices] IGenericRepository<Candidate> candidateRepository,
+        [FromServices] IGenericRepository<CandidateSkill> candidateSkillRepository,
         [FromServices] IGenericRepository<JobPosting> jobPostingrepository,
+        [FromServices] IGenericRepository<JobPostingSkill> jobPostingSkillrepository,
+        [FromServices] IGenericRepository<JobSkill> jobSkillrepository,
         CancellationToken token = default
     )
     {
-        await candidateRepository.GetAll();
+        await jobSkillrepository.GetAll();
+        var jobSkills = (await jobPostingSkillrepository.GetAll()).Select(x => x.JobSkill.Name);
+        var candidates = await candidateRepository.GetAll();
         await jobPostingrepository.GetAll();
+
+        var jobPostingApplications = await repository.GetAll();
+        jobPostingApplications = jobPostingApplications.Where(x => x.JobPosting.Id == id);
 
         if (phase == null)
         {
-            var candidates = await repository.GetAll();
-            candidates = candidates.Where(x => x.JobPosting.Id == id);
-            return Results.Ok(candidates);
+            return Results.Ok(jobPostingApplications);
         }
         else
         {
-            var candidates = await repository.GetAll();
-            candidates = candidates.Where(x => x.JobPosting.Id == id && x.ApplicationPhase == phase);
-            return Results.Ok(candidates);
+            if (phase == ApplicationPhase.ENTRY)
+            {
+                List<int> ids = new List<int>();
+
+                jobPostingApplications.ToList().ForEach(p =>
+                {
+                    ids.Add(p.Candidate.Id);
+                });
+
+                candidates.ToList().ForEach(async c =>
+                {
+                    if (!ids.Contains(c.Id))
+                    {
+                        var candidateSkills = (await candidateSkillRepository.GetAll()).Where(x => x.Candidate.Id == c.Id).Select(x => x.Skill);
+
+                        int count = 0;
+
+                        jobSkills.ToList().ForEach(x =>
+                        {
+                            if (candidateSkills.Contains(x))
+                            {
+                                count++;
+                            }
+                        });
+
+                        int matchRate = (count / candidateSkills.Count()) * 100;
+
+                        await repository.Create(new JobPostingApplication()
+                        {
+                            JobPosting = await jobPostingrepository.GetById(id),
+                            Candidate = c,
+                            ApplicationPhase = ApplicationPhase.ENTRY,
+                            MatchRate = matchRate
+                        });
+                    }
+                });
+            }
+
+            jobPostingApplications = (await repository.GetAll()).ToList().Where(x => x.ApplicationPhase == phase);
+            return Results.Ok(jobPostingApplications);
         }
-        // return phase == null ? Results.Ok(await repository.Get(x => x.JobPosting.Id == id)) : Results.Ok(await repository.Get(x => x.JobPosting.Id == id && x.ApplicationPhase == phase));
     }
 
     private class Request : JobPosting
