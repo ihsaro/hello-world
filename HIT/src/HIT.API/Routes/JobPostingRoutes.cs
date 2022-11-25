@@ -96,6 +96,7 @@ public sealed class JobPostingRoutes : IRoute
         {
             var p = new Response()
             {
+                Id = r.Id,
                 Title = r.Title,
                 Description = r.Description,
                 YearsOfExperience = r.YearsOfExperience,
