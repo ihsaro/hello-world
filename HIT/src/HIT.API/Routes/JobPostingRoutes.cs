@@ -16,6 +16,10 @@ public sealed class JobPostingRoutes : IRoute
         app
             .MapGet("api/v1/job-postings", GetAll)
             .AllowAnonymous();
+
+        app
+            .MapGet("api/v1/job-postings/{id}/candidates", GetAllCandidates)
+            .AllowAnonymous();
     }
 
     private async Task<IResult> Create(
@@ -106,6 +110,33 @@ public sealed class JobPostingRoutes : IRoute
         });
 
         return Results.Ok(postings);
+    }
+
+    public async Task<IResult> GetAllCandidates(
+        [FromRoute] int id,
+        [FromQuery] ApplicationPhase? phase,
+        [FromServices] IGenericRepository<JobPostingApplication> repository,
+        [FromServices] IGenericRepository<Candidate> candidateRepository,
+        [FromServices] IGenericRepository<JobPosting> jobPostingrepository,
+        CancellationToken token = default
+    )
+    {
+        await candidateRepository.GetAll();
+        await jobPostingrepository.GetAll();
+
+        if (phase == null)
+        {
+            var candidates = await repository.GetAll();
+            candidates = candidates.Where(x => x.JobPosting.Id == id);
+            return Results.Ok(candidates);
+        }
+        else
+        {
+            var candidates = await repository.GetAll();
+            candidates = candidates.Where(x => x.JobPosting.Id == id && x.ApplicationPhase == phase);
+            return Results.Ok(candidates);
+        }
+        // return phase == null ? Results.Ok(await repository.Get(x => x.JobPosting.Id == id)) : Results.Ok(await repository.Get(x => x.JobPosting.Id == id && x.ApplicationPhase == phase));
     }
 
     private class Request : JobPosting

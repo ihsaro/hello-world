@@ -16,7 +16,6 @@ public class ApplicationDbContext : DbContext
     public DbSet<CandidateSkill> CandidateSkills => Set<CandidateSkill>();
     public DbSet<JobPosting> JobPostings => Set<JobPosting>();
     public DbSet<JobPostingApplication> JobPostingApplications => Set<JobPostingApplication>();
-    public DbSet<JobPostingApplicationStatus> JobPostingApplicationStatuses => Set<JobPostingApplicationStatus>();
     public DbSet<JobSkill> JobSkills => Set<JobSkill>();
     public DbSet<JobPostingSkill> JobPostingSkills => Set<JobPostingSkill>();
 
