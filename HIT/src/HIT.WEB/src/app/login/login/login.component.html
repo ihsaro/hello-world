@@ -1,0 +1,22 @@
+
+<section class="login-container">
+    
+    <form class="login-form card">
+        <h2 style="text-align: center;">Login</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+      
+        />
+        <mat-error *ngIf="formError('email', 'required')">Email is required</mat-error>
+        <mat-error *ngIf="formError('email', 'email')">Email's format is not correct'</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput />
+        <mat-error *ngIf="formError('password', 'required')">Email is required</mat-error>
+      </mat-form-field>
+      <button (click)="onSubmit()" class="btn" mat-flat-button color="primary">Login</button>
+    </form>
+  </section>

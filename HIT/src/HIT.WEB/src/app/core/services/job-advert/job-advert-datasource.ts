@@ -27,7 +27,7 @@ export class JobAdvertDataSource implements DataSource<JobPostingWithEnum> {
                       tap((res: JobPostingWithEnum[]) => {
                         this.length = res.length;
                         if (filterValue != '') {
-                          res = res.filter(data => data.jobLocation.toLocaleLowerCase().includes(filterValue) || data.description.toLocaleLowerCase().includes(filterValue) || data.title.toLocaleLowerCase().includes(filterValue)  || data.jobSkills.every((skill) => skill.name.toLocaleLowerCase().includes(filterValue) || SkillCategoryType[skill.skillCategory].toLocaleLowerCase().includes(filterValue)))
+                          res = res.filter(data => data.jobLocation.toLocaleLowerCase().includes(filterValue) || data.description.toLocaleLowerCase().includes(filterValue) || data.title.toLocaleLowerCase().includes(filterValue)  || data.jobSkills?.every((skill) => skill.name.toLocaleLowerCase().includes(filterValue) || SkillCategoryType[skill.skillCategory].toLocaleLowerCase().includes(filterValue)))
                         }
                         switch (direction) {
                           case 'asc': {

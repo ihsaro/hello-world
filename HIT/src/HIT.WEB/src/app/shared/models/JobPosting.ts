@@ -9,8 +9,8 @@ export interface JobPosting {
     description: string;
     yearsOfExperience: number;
     jobLocation: JobLocation;
-    jobtype: JobType;
+    jobType: JobType;
     jobStatus: JobStatus;
-    jobSkills: Skill[]
+    jobSkills?: Skill[]
   }
   

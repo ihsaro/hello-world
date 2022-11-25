@@ -8,7 +8,7 @@ export interface Menu {
 
 const MENUITEMS = [
   // { name: 'Dashboard', type: 'link', icon: 'av_timer' },
-  { name: 'example', type: 'link', icon: 'av_timer' },
+ 
   { name: 'Candidates', type: 'link', icon: 'groups' },
   { name: 'skill', type: 'link', icon: 'stars' },
   { name: 'job-adverts', type: 'link', icon: 'work' },

@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  div.mat-sort-header-arrow, .mat-header-cell {
+    color: #fff !important;
+}
+
+tr.mat-header-row {
+    background: #0d47a1;
+}

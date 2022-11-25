@@ -11,22 +11,19 @@ import {
   ApexXAxis,
   ApexFill,
   ApexTooltip,
+  ApexTitleSubtitle,
   ApexGrid
 } from "ng-apexcharts";
 
-export interface ChartOptions {
+export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
-  dataLabels: ApexDataLabels;
-  plotOptions: ApexPlotOptions;
-  yaxis: ApexYAxis;
   xaxis: ApexXAxis;
-  fill: ApexFill;
-  tooltip: ApexTooltip;
-  stroke: ApexStroke;
-  legend: ApexLegend;
+  dataLabels: ApexDataLabels;
   grid: ApexGrid;
-}
+  stroke: ApexStroke;
+  title: ApexTitleSubtitle;
+};
 
 @Component({
   selector: "app-sales-overview",
@@ -40,51 +37,42 @@ export class SalesOverviewComponent implements OnInit {
     this.chartOptions = {
       series: [
         {
-          name: "Pixel",
-          data: [44, 55, 57, 56, 61, 58],
-        },
-        {
-          name: "Ample",
-          data: [76, 85, 101, 98, 87, 105],
-        },
+          name: "Desktops",
+          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+        }
       ],
       chart: {
-        type: "bar",
-        fontFamily: "Poppins,sans-serif",
-        height: 320,
-      },
-      grid: {
-        borderColor: "rgba(0,0,0,.2)",
-        strokeDashArray: 3,
-      },
-      plotOptions: {
-        bar: {
-          horizontal: false,
-          columnWidth: "30%",
-        },
+        height: 350,
+        type: "line",
+        zoom: {
+          enabled: false
+        }
       },
       dataLabels: {
-        enabled: false,
+        enabled: false
       },
       stroke: {
-        show: true,
-        width: 2,
-        colors: ["transparent"],
+        curve: "straight"
+      },
+      grid: {
+        row: {
+          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+          opacity: 0.5
+        }
       },
       xaxis: {
-        categories: ["Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-      },
-
-      legend: {
-        show: false,
-      },
-      fill: {
-        colors: ["#26c6da", "#1e88e5"],
-        opacity: 1,
-      },
-      tooltip: {
-        theme: "dark",
-      },
+        categories: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep"
+        ]
+      }
     };
   }
 

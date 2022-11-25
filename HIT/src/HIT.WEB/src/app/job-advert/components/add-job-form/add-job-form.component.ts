@@ -4,6 +4,7 @@ import { Validators, FormBuilder, FormGroup, FormArray, FormControl } from '@ang
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialogRef } from '@angular/material/dialog';
 import {  map, Observable, startWith } from 'rxjs';
+import { JobAdvertService } from 'src/app/core/services/job-advert/job-advert.service';
 import { SkillApiService } from 'src/app/core/services/skills/skill-api.service';
 import { JobLocation, jobLocations } from 'src/app/shared/enum/JobLocation.enum';
 import { JobStatus  } from 'src/app/shared/enum/JobStatus.enum.';
@@ -34,7 +35,7 @@ export class AddJobFormComponent implements OnInit {
     jobSkills: [[], [Validators.required]],
   })
 
-  constructor(private fb:FormBuilder,private skillService: SkillApiService ,  private dialogRef: MatDialogRef<AddJobFormComponent>) { }
+  constructor(private fb:FormBuilder,private skillService: SkillApiService , private jobService: JobAdvertService,  private dialogRef: MatDialogRef<AddJobFormComponent>) { }
 
   formError(controlName: string, errorName: string) {
     return (this.jobForm.get(controlName)!.hasError(errorName) && this.jobForm.get(controlName)!.touched)
@@ -149,9 +150,9 @@ export class AddJobFormComponent implements OnInit {
          description: this.jobForm.value.description || "",
          jobLocation: Number(this.jobForm.value.jobLocation) || JobLocation.MAURITIUS,
          jobtype: Number(this.jobForm.value.jobtype) || JobType.Development,
-         yearsOfExperience: Number(this.jobForm.value),
+         yearsOfExperience: Number(this.jobForm.value.yearsOfExperience),
       }
-      console.log(newJob)
+      this.jobService.addJobPosting(newJob,this.dialogRef)
     }
    
   }

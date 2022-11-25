@@ -34,11 +34,9 @@ export class SkillsDataSource implements DataSource<SkillWithCategory> {
                     this.skillService.Skills$.pipe(
                       map((res: Skill[]) => {
                         let skillsWithcategories: SkillWithCategory[] = res.map((res: Skill) => {
-                          console.log(SkillCategoryType[res.skillCategory])
                           let skillCategory: SkillWithCategory = {...res, skillCategory: SkillCategoryType[res.skillCategory] };
                           return skillCategory;
                         })
-                        console.log(skillsWithcategories)
                         return skillsWithcategories;
                       }),
                       tap((res: SkillWithCategory[]) => {

@@ -62,6 +62,9 @@ import { MaterialModule } from '../material-module';
     SnackbarComponent,
     SliderComponent,
     SlideToggleComponent
+  ],
+  exports: [
+    TabsComponent
   ]
 })
 export class MaterialComponentsModule {}

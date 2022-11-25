@@ -5,25 +5,30 @@ import { AccordionAnchorDirective, AccordionLinkDirective, AccordionDirective } 
 import { MaterialModule } from '../material-module';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { CommonModule } from '@angular/common';
-
+import { LoaderComponent } from './loader/loader.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
     AccordionAnchorDirective,
     AccordionLinkDirective,
     AccordionDirective,
-    SpinnerComponent
+    SpinnerComponent,
+    LoaderComponent,
+
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    MatTabsModule
   ],
   exports: [
     AccordionAnchorDirective,
     AccordionLinkDirective,
     AccordionDirective,
     MaterialModule,
-    SpinnerComponent
+    SpinnerComponent,
+    LoaderComponent
    ],
   providers: [ MenuItems ]
 })

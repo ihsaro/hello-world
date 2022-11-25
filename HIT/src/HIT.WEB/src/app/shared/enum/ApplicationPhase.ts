@@ -1,0 +1,8 @@
+export enum ApplicationPhase {
+  REJECTED = -1,
+  ENTRY = 0,
+  READY_FOR_HR_INTERVIEW = 2,
+  READY_FOR_TECHNICAL_INTERVIEW = 1,
+  READY_FOR_CONTRACT = 3,
+  }
+  

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { fromEvent, debounceTime, distinctUntilChanged, tap, merge } from 'rxjs';
 import { JobAdvertDataSource } from '../core/services/job-advert/job-advert-datasource';
 import { JobAdvertService } from '../core/services/job-advert/job-advert.service';
@@ -11,7 +12,7 @@ import { SkillsService } from '../core/services/skills/skill.service';
 import { JobPostingWithEnum } from '../shared/models/JobPostingWithEnumName';
 import { SkillWithCategory } from '../shared/models/skill-with-category';
 import { AddSkillFormComponent } from '../skill/add-skill-form/add-skill-form.component';
-import { AddJobFormComponent } from './add-job-form/add-job-form.component';
+import { AddJobFormComponent } from './components/add-job-form/add-job-form.component';
 
 @Component({
   selector: 'app-job-advert',
@@ -29,7 +30,7 @@ export class JobAdvertComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild('input') input!: ElementRef;
 
-  constructor(public dialog: MatDialog, private  jobAdvertService: JobAdvertService) {
+  constructor(public dialog: MatDialog, private  jobAdvertService: JobAdvertService, private router: Router) {
   }
   ngOnInit(): void {
     this.datasource = new JobAdvertDataSource(this.jobAdvertService);
@@ -66,6 +67,8 @@ merge(this.sort.sortChange, this.paginator.page)
       this.paginator.pageSize)
 }
 
+
+
   openDialog(): void {
     this.dialog.open(AddJobFormComponent, {
       width: '650px',
@@ -73,6 +76,10 @@ merge(this.sort.sortChange, this.paginator.page)
       exitAnimationDuration:'200ms',
       autoFocus: false
     });
+  }
+
+  goApplicants(id : number) {
+    this.router.navigate([`dashboard/job/${id}/applicants`])
   }
 
 }

@@ -1,13 +1,18 @@
 
 <mat-nav-list appAccordion>
+    <mat-list-item appAccordionLink [routerLinkActive]="['selected']">
+        <a class="/" appAccordionToggle>
+            <mat-icon>av_timer</mat-icon> 
+            <span>dashboard</span> 
+            <span fxFlex></span> 
+        </a>
+    </mat-list-item>
     <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" [routerLinkActive]="['selected']">
-        <a class="" appAccordionToggle [routerLink]="['/', menuitem.name]">
+        <a class="" appAccordionToggle [routerLink]="[ '/dashboard/', menuitem.name]">
             <mat-icon>{{ menuitem.icon }}</mat-icon> 
             <span>{{ menuitem.name }}</span> 
             <span fxFlex></span> 
         </a>
-
-        
     </mat-list-item>
     <mat-list-item appAccordionLink>
         <a class="" appAccordionToggle>

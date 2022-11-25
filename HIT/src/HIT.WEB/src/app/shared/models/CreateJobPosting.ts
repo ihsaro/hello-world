@@ -1,6 +1,7 @@
 import { JobLocation } from "../enum/JobLocation.enum";
 import { JobStatus } from "../enum/JobStatus.enum.";
 import { JobType } from "../enum/JobType.enum";
+import { Skill } from "./skill";
 
 export interface CreateJobPosting {
     id?: number;
@@ -10,6 +11,6 @@ export interface CreateJobPosting {
     jobLocation: JobLocation;
     jobtype: JobType;
     jobStatus: JobStatus;
-    skills: (number|undefined) []
+    skills?: (number|undefined) [];
   }
   

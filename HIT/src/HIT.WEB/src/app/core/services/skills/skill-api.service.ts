@@ -14,9 +14,7 @@ export class SkillApiService {
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   create(newSkill: Skill): Observable<Skill> {
-   return this.httpClient.post<Skill>(this.api, newSkill).pipe(
-    tap((res) => console.log(res))
-   )
+   return this.httpClient.post<Skill>(this.api, newSkill)
   }
 
   GetAll(): Observable<Skill[]> {

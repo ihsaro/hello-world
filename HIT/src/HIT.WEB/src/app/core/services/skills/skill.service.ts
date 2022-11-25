@@ -5,6 +5,7 @@ import { SkillCategoryType } from 'src/app/shared/enum/skill-category-type.enum'
 import { Skill } from 'src/app/shared/models/skill';
 import { SkillWithCategory } from 'src/app/shared/models/skill-with-category';
 import { AddSkillFormComponent } from 'src/app/skill/add-skill-form/add-skill-form.component';
+import { ToasterService } from '../toaster.service';
 import { SkillApiService } from './skill-api.service';
 
 @Injectable({
@@ -48,7 +49,7 @@ export class SkillsService {
       skillCategory: 2
     },
   ]
-  constructor(private api: SkillApiService){}
+  constructor(private api: SkillApiService, private toastr: ToasterService){}
   
   private Skills$$ = new BehaviorSubject<Skill[]>([]);
   Skills$ = this.Skills$$.asObservable();
@@ -61,6 +62,7 @@ export class SkillsService {
         } 
         this.Skills$$.next([res, ...this.Skills$$.getValue()])
         dialog.close();
+        this.toastr.success("Skill added successfully!!!")
       })
     );
   }

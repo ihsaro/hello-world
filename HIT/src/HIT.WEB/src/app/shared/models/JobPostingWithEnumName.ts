@@ -10,7 +10,7 @@ export interface JobPostingWithEnum {
     yearsOfExperience: number;
     jobLocation: string;
     jobtype: string;
-    jobStatus: JobStatus;
-    jobSkills: Skill[]
+    jobStatus: string;
+    jobSkills?: Skill[]
   }
   

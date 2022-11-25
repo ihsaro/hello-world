@@ -44,6 +44,9 @@
                             <button class="view-color" mat-icon-button>
                                 <mat-icon>visibility</mat-icon>
                               </button>
+                              <button class="view-color" mat-icon-button  (click)="goApplicants(row.id)" [routerLink]="[ '/job', row.id,'/applicants']">
+                                <mat-icon>groups</mat-icon>
+                              </button>
                               <button class="edit-color" mat-icon-button>
                                 <mat-icon>edit</mat-icon>
                               </button>

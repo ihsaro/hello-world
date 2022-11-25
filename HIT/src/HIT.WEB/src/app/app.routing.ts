@@ -4,13 +4,12 @@ import { FullComponent } from './layouts/full/full.component';
 
 export const AppRoutes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: FullComponent,
     children: [
       {
         path: '',
-        redirectTo: '/example',
-        pathMatch: 'full'
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
       },
       {
         path: '',
@@ -28,7 +27,20 @@ export const AppRoutes: Routes = [
       {
         path: 'job-adverts',
         loadChildren: () => import('./job-advert/job-advert.module').then(m => m.JobAdvertModule)
+      },
+      {
+        path: 'job/:id/applicants',
+        loadChildren: () => import('./applicants/applicants.module').then(m => m.ApplicantsModule)
       }
-    ]
+    ],
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
   }
 ];

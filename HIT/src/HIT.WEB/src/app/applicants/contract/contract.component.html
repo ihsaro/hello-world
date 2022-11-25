@@ -1,0 +1,45 @@
+<h2 mat-dialog-title style="text-align: center;">Send Contract</h2>
+<div class="form-container">
+    <form [formGroup]="contractForm">
+        <mat-form-field class="field-wrapper" appearance="outline">
+            <mat-label>Title</mat-label>
+            <mat-select formControlName="title">
+                <mat-option value="Software Developer">Software Developer</mat-option>
+                <mat-option value="Project Manager">Project Manager</mat-option>
+              </mat-select>
+            <mat-error *ngIf="formError('title', 'required')">Title is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field-wrapper" appearance="outline">
+            <mat-label>Kind of employment</mat-label>
+            <mat-select formControlName="kind">
+                <mat-option value="Contract">Contract</mat-option>
+                <mat-option value="B2B">B2B</mat-option>
+              </mat-select>
+            <mat-error *ngIf="formError('kind', 'required')">Kind is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field-wrapper" appearance="outline">
+            <mat-label>Employment type</mat-label>
+            <mat-select formControlName="type">
+                <mat-option value="Fulltime">Fulltime</mat-option>
+                <mat-option value="Contract">Contract</mat-option>
+              </mat-select>
+            <mat-error *ngIf="formError('type', 'required')">Employment type is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field-wrapper" appearance="outline">
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country">
+                <mat-option value="Poland">Poland</mat-option>
+                <mat-option value="Mauritius">Mauritius</mat-option>
+              </mat-select>
+            <mat-error *ngIf="formError('country', 'required')">Country is required</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
+<mat-dialog-actions align="end">
+    <button type="submit" mat-raised-button (click)="onSubmit()"  color="primary">Send</button>
+    <button [mat-dialog-close]="true" mat-raised-button class="close-bg" color="warn">Close</button>
+</mat-dialog-actions>

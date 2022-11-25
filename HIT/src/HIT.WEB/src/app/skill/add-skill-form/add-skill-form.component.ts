@@ -33,7 +33,7 @@ export class AddSkillFormComponent implements OnInit {
     category: ['', [Validators.required]],
   })
 
-  constructor(private fb:FormBuilder, private dialogRef: MatDialogRef<AddSkillFormComponent>, private skillService: SkillsService) { }
+  constructor( private fb:FormBuilder, private dialogRef: MatDialogRef<AddSkillFormComponent>, private skillService: SkillsService) { }
 
   formError(controlName: string, errorName: string) {
     return (this.skillForm.get(controlName)!.hasError(errorName) && this.skillForm.get(controlName)!.touched)
@@ -44,7 +44,6 @@ export class AddSkillFormComponent implements OnInit {
 
   onSubmit() {
     if (this.skillForm.valid) {
-      console.log(this.skillForm.value)
       let x: Skill = {
         name: this.skillForm.value.name || "",
         skillCategory: Number(this.skillForm.value.category) || SkillCategoryType.MANAGEMENT,
