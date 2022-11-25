@@ -47,6 +47,8 @@ public class Candidate : BaseEntity
     }
 
     public int YearsOfExperience { get; set; }
+
+    public List<CandidateSkill> CandidateSkills { get; set; }
 }
 
 public enum CandidateType

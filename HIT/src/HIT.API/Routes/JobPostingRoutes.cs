@@ -125,6 +125,7 @@ public sealed class JobPostingRoutes : IRoute
         CancellationToken token = default
     )
     {
+        await candidateSkillRepository.GetAll();
         await jobSkillrepository.GetAll();
         var jobSkills = (await jobPostingSkillrepository.GetAll()).Select(x => x.JobSkill.Name);
         var candidates = await candidateRepository.GetAll();

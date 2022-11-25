@@ -1,7 +1,10 @@
+using System.Text.Json.Serialization;
+
 namespace HIT.Domain.Entities;
 
 public class CandidateSkill : BaseEntity
 {
+    [JsonIgnore]
     public Candidate Candidate
     {
         get;
