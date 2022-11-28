@@ -20,4 +20,4 @@ VALUES
 (1, 'C#', DATE('now'), DATE('now')),
 (2, 'Java', DATE('now'), DATE('now')),
 (2, 'C#', DATE('now'), DATE('now')),
-(2, 'Python', DATE('now'), DATE('now')),
+(2, 'Python', DATE('now'), DATE('now'));
