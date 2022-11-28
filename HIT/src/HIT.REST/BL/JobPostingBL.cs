@@ -103,7 +103,7 @@ public class JobPostingBL : IJobPostingBL
         var jobSkills = (await context.JobPostingSkills.Include(x => x.JobSkill).Include(x => x.JobPosting).Where(x => x.JobPosting.Id == id).ToListAsync()).Select(x => x.JobSkill.Name);
         var candidates = context.Candidates.ToList();
 
-        var jobPostingApplications = context.JobPostingApplications.Include(x => x.JobPosting).Where(x => x.JobPosting.Id == id).ToList();
+        var jobPostingApplications = context.JobPostingApplications.Include(x => x.JobPosting).Include(x => x.Candidate).Include(x => x.Candidate.CandidateSkills).Where(x => x.JobPosting.Id == id).ToList();
 
         if (phase == null)
         {
@@ -136,7 +136,7 @@ public class JobPostingBL : IJobPostingBL
                             }
                         });
 
-                        int matchRate = (count / jobSkills.Count()) * 100;
+                        double matchRate = ((double) count / (double) jobSkills.Count()) * 100;
 
                         if (matchRate != 0)
                         {
@@ -145,7 +145,7 @@ public class JobPostingBL : IJobPostingBL
                                 JobPosting = context.JobPostings.First(x => x.Id == id),
                                 Candidate = c,
                                 ApplicationPhase = ApplicationPhase.ENTRY,
-                                MatchRate = matchRate
+                                MatchRate = (int) matchRate
                             });
                         }
                     }
@@ -154,7 +154,7 @@ public class JobPostingBL : IJobPostingBL
                 await context.SaveChangesAsync(cancellationToken: token);
             }
 
-            return context.JobPostingApplications.Where(x => x.JobPosting.Id == id && x.ApplicationPhase == phase).ToList();
+            return context.JobPostingApplications.Include(x => x.JobPosting).Include(x => x.Candidate).Include(x => x.Candidate.CandidateSkills).Where(x => x.JobPosting.Id == id && x.ApplicationPhase == phase).ToList();
         }
     }
 }
