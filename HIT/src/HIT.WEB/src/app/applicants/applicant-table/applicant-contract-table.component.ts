@@ -103,7 +103,8 @@ openView(data: JobApplication) {
     width: '750px',
     enterAnimationDuration: '400ms',
     exitAnimationDuration:'200ms',
-    autoFocus: false
+    autoFocus: false,
+    data: {data}
   });
 }
 

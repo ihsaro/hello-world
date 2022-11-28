@@ -1,5 +1,5 @@
 -- SQLite
-/*
+
 INSERT INTO Candidates (FirstName, LastName, EmailAddress, LinkedInURL, CandidateType, CandidateLocation, YearsOfExperience, CreatedTimestamp, LastUpdatedTimestamp)
 VALUES
 ('John', 'Stones', 'idjazhossanee@gmail.com', '', 0, 'Mauritius', 2, DATE('now'), DATE('now')),
@@ -12,7 +12,7 @@ VALUES
 ('James', 'Middleschool', 'idjazhossanee@gmail.com', '', 1, 'Germany', 6, DATE('now'), DATE('now')),
 ('Richard', 'Milestone', 'idjazhossanee@gmail.com', '', 2, 'Poland', 5, DATE('now'), DATE('now')),
 ('Gabriel', 'Rock', 'idjazhossanee@gmail.com', '', 0, 'Poland', 3, DATE('now'), DATE('now'));
-*/
+
 
 INSERT INTO CandidateSkills (CandidateId, Skill, CreatedTimestamp, LastUpdatedTimestamp)
 VALUES
@@ -20,4 +20,4 @@ VALUES
 (1, 'C#', DATE('now'), DATE('now')),
 (2, 'Java', DATE('now'), DATE('now')),
 (2, 'C#', DATE('now'), DATE('now')),
-(2, 'Python', DATE('now'), DATE('now')),
+(2, 'Python', DATE('now'), DATE('now'));

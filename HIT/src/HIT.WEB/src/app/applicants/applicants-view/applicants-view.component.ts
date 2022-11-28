@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NewExampleGridComponent } from 'src/app/example/new-example-grid/new-example-grid.component';
+import { JobApplication } from 'src/app/shared/models/jobApplication';
 
 @Component({
   selector: 'app-applicants-view',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicantsViewComponent implements OnInit {
 
-  constructor() { }
+  exampleForm = this.fb.group({
+    name: [ this.data.Candidate.firstName + " " +  this.data.Candidate.lastName || "" , [Validators.required]],
+    age: ['', [Validators.required]],
+    address: ['', [Validators.required]],
+  })
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: JobApplication , private fb:FormBuilder, private dialogRef: MatDialogRef<ApplicantsViewComponent>) { }
 
   ngOnInit(): void {
+    console.log(this.data)
   }
 
 }

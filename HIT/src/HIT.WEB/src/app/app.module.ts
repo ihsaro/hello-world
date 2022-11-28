@@ -18,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material-module';
 import { SpinnerInterceptor } from './core/interceptors/spinner.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   bootstrap: [AppComponent],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true},
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
     // {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ]
 })

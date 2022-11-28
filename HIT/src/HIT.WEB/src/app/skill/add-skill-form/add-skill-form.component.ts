@@ -46,7 +46,7 @@ export class AddSkillFormComponent implements OnInit {
     if (this.skillForm.valid) {
       let x: Skill = {
         name: this.skillForm.value.name || "",
-        skillCategory: Number(this.skillForm.value.category) || SkillCategoryType.MANAGEMENT,
+        skillCategory: Number(this.skillForm.value.category),
         description: this.skillForm.value.description || ""
         
       }
