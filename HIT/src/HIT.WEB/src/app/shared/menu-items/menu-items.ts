@@ -7,12 +7,11 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  // { name: 'Dashboard', type: 'link', icon: 'av_timer' },
- 
-  { label: 'Candidates', name: 'Candidates', type: 'link', icon: 'groups' },
-  { label: 'Skills', name: 'skill', type: 'link', icon: 'stars' },
+  // { label:'Dashboard',  name: '', type: 'link', icon: 'av_timer' },
+  
   { label: 'Job Adverts', name: 'job-adverts', type: 'link', icon: 'work' },
-  { label: 'Administration', name: 'Administration', type: 'link', icon: 'admin_panel_settings' },
+  { label: 'Candidates', name: 'Candidates', type: 'link', icon: 'groups' },
+  { label: 'Skills', name: 'skill', type: 'link', icon: 'stars' }
 ];
 
 @Injectable()

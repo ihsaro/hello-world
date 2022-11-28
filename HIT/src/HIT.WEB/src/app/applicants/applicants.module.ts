@@ -13,6 +13,7 @@ import { RejectApplicantTableComponent } from './applicant-table/applicant-rejec
 import { EntryApplicantTableComponent } from './applicant-table/applicant-entry-table.component';
 import { ContractComponent } from './contract/contract.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApplicantsViewComponent } from './applicants-view/applicants-view.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         TechApplicantTableComponent,
         RejectApplicantTableComponent,
         EntryApplicantTableComponent,
-        ContractComponent
+        ContractComponent,
+        ApplicantsViewComponent
     ],
     imports: [
         CommonModule,
