@@ -11,6 +11,7 @@ import { ApplicationPhase } from 'src/app/shared/enum/ApplicationPhase';
 import { JobApplication } from 'src/app/shared/models/jobApplication';
 import { JobPostingWithEnum } from 'src/app/shared/models/JobPostingWithEnumName';
 import { JobAdvertApiService } from 'src/app/core/services/job-advert/job-adverts-api.service';
+import { ApplicantsViewComponent } from '../applicants-view/applicants-view.component';
 
 @Component({
   selector: 'app-entry-table',
@@ -72,7 +73,7 @@ next(data: JobApplication) {
     let index = jobs.findIndex((res: JobApplication) => res.id === data.id)
     jobs.splice(index, 1)
     this.applicationService.Entryapplications$$.next(jobs)
-    this.applicationService.TECHapplications$$.next([data,  ...this.applicationService.TECHapplications$$.value])
+    this.applicationService.TECHapplications$$.next([{...data, applicationPhase: ApplicationPhase.READY_FOR_TECHNICAL_INTERVIEW},  ...this.applicationService.TECHapplications$$.value])
   })
  
 }
@@ -83,7 +84,16 @@ reject(data: JobApplication) {
   let index = jobs.findIndex((res: JobApplication) => res.id === data.id)
   jobs.splice(index, 1)
   this.applicationService.Entryapplications$$.next(jobs)
-  this.applicationService.Rejectedapplications$$.next([data,  ...this.applicationService.Rejectedapplications$$.value])
+  this.applicationService.Rejectedapplications$$.next([{...data, applicationPhase: ApplicationPhase.REJECTED},  ...this.applicationService.Rejectedapplications$$.value])
+}
+
+openView(data: JobApplication) {
+  this.dialog.open(ApplicantsViewComponent, {
+    width: '750px',
+    enterAnimationDuration: '400ms',
+    exitAnimationDuration:'200ms',
+    autoFocus: false
+  });
 }
 
 }

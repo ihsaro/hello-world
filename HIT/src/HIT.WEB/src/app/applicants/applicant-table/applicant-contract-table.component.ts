@@ -12,6 +12,7 @@ import { JobPostingWithEnum } from 'src/app/shared/models/JobPostingWithEnumName
 import { ContractApplicantDataSource } from 'src/app/core/services/applicants/contract-datasource';
 import { JobAdvertApiService } from 'src/app/core/services/job-advert/job-adverts-api.service';
 import { ContractComponent } from '../contract/contract.component';
+import { ApplicantsViewComponent } from '../applicants-view/applicants-view.component';
 
 @Component({
   selector: 'app-contract-applicant-table',
@@ -94,7 +95,17 @@ reject(data: JobApplication) {
   let index = jobs.findIndex((res: JobApplication) => res.id === data.id)
   jobs.splice(index, 1)
   this.applicationService.Contractapplications$$.next(jobs)
-  this.applicationService.Rejectedapplications$$.next([data,  ...this.applicationService.Rejectedapplications$$.value])
+  this.applicationService.Rejectedapplications$$.next([{...data, applicationPhase: ApplicationPhase.REJECTED} ,  ...this.applicationService.Rejectedapplications$$.value])
 })}
+
+openView(data: JobApplication) {
+  this.dialog.open(ApplicantsViewComponent, {
+    width: '750px',
+    enterAnimationDuration: '400ms',
+    exitAnimationDuration:'200ms',
+    autoFocus: false
+  });
+}
+
 
 }

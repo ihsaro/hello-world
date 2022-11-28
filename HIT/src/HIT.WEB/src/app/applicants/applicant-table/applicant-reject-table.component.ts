@@ -10,6 +10,7 @@ import { ApplicationPhase } from 'src/app/shared/enum/ApplicationPhase';
 import { JobApplication } from 'src/app/shared/models/jobApplication';
 import { JobPostingWithEnum } from 'src/app/shared/models/JobPostingWithEnumName';
 import { RejectedApplicantDataSource } from 'src/app/core/services/applicants/rejected-datasource';
+import { ApplicantsViewComponent } from '../applicants-view/applicants-view.component';
 
 @Component({
   selector: 'app-reject-applicant-table',
@@ -64,5 +65,16 @@ merge(this.sort.sortChange, this.paginator.page)
       this.paginator.pageIndex,
       this.paginator.pageSize)
 }
+
+openView(data: JobApplication) {
+  this.dialog.open(ApplicantsViewComponent, {
+    width: '750px',
+    enterAnimationDuration: '400ms',
+    exitAnimationDuration:'200ms',
+    autoFocus: false
+  });
+}
+
+
 
 }

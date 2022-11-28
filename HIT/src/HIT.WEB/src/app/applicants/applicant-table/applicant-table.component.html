@@ -44,7 +44,7 @@
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
                     <td mat-cell *matCellDef="let row">
                         <div  style="display: flex;">
-                            <button class="view-color" mat-icon-button>
+                            <button (click)="openView(row)" class="view-color" mat-icon-button>
                                 <mat-icon>visibility</mat-icon>
                               </button>
                               <button *ngIf="row.applicationPhase === 3" (click)="openDialog()" style="color: #0a1e91;" mat-icon-button>

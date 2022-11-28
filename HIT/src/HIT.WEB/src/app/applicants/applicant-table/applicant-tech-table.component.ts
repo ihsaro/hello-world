@@ -11,6 +11,7 @@ import { JobAdvertApiService } from 'src/app/core/services/job-advert/job-advert
 import { ApplicationPhase } from 'src/app/shared/enum/ApplicationPhase';
 import { JobApplication } from 'src/app/shared/models/jobApplication';
 import { JobPostingWithEnum } from 'src/app/shared/models/JobPostingWithEnumName';
+import { ApplicantsViewComponent } from '../applicants-view/applicants-view.component';
 
 @Component({
   selector: 'app-tech-applicant-table',
@@ -71,7 +72,7 @@ next(data: JobApplication) {
     let index = jobs.findIndex((res: JobApplication) => res.id === data.id)
     jobs.splice(index, 1)
     this.applicationService.TECHapplications$$.next(jobs)
-    this.applicationService.HRapplications$$.next([data,  ...this.applicationService.HRapplications$$.value])
+    this.applicationService.HRapplications$$.next([{...data, applicationPhase: ApplicationPhase.READY_FOR_HR_INTERVIEW},  ...this.applicationService.HRapplications$$.value])
   })
  
 }
@@ -82,7 +83,7 @@ back(data: JobApplication) {
     let index = jobs.findIndex((res: JobApplication) => res.id === data.id)
     jobs.splice(index, 1)
     this.applicationService.TECHapplications$$.next(jobs)
-    this.applicationService.Entryapplications$$.next([data,  ...this.applicationService.Entryapplications$$.value])
+    this.applicationService.Entryapplications$$.next([{...data, applicationPhase: ApplicationPhase.ENTRY},  ...this.applicationService.Entryapplications$$.value])
   })
  
 }
@@ -94,7 +95,16 @@ reject(data: JobApplication) {
   let index = jobs.findIndex((res: JobApplication) => res.id === data.id)
   jobs.splice(index, 1)
   this.applicationService.TECHapplications$$.next(jobs)
-  this.applicationService.Rejectedapplications$$.next([data,  ...this.applicationService.Rejectedapplications$$.value])
+  this.applicationService.Rejectedapplications$$.next([{...data, applicationPhase: ApplicationPhase.REJECTED},  ...this.applicationService.Rejectedapplications$$.value])
 })}
+
+openView(data: JobApplication) {
+  this.dialog.open(ApplicantsViewComponent, {
+    width: '750px',
+    enterAnimationDuration: '400ms',
+    exitAnimationDuration:'200ms',
+    autoFocus: false
+  });
+}
 
 }
