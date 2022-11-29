@@ -17,7 +17,11 @@ VALUES
 (1, 'C#', DATE('now'), DATE('now')),
 (2, 'Java', DATE('now'), DATE('now')),
 (2, 'C#', DATE('now'), DATE('now')),
-(2, 'Python', DATE('now'), DATE('now'));
+(2, 'Python', DATE('now'), DATE('now')),
+(3, 'C#', DATE('now'), DATE('now')),
+(3, 'React', DATE('now'), DATE('now')),
+(3, 'Effective Communication', DATE('now'), DATE('now')),
+(3, 'Agile Planning', DATE('now'), DATE('now'));
 
 INSERT INTO JobPostings (Title, Description, YearsOfExperience, JobLocation, JobType, JobStatus, CreatedTimestamp, LastUpdatedTimestamp)
 VALUES
