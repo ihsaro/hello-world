@@ -9,5 +9,9 @@ export interface Candidate {
     candidateType: CandidateType;
     candidateLocation: string;
     yearsOfExperience: number;
+    candidateSkills: {
+          skill: string,
+          id: number
+    }[]
   }
   

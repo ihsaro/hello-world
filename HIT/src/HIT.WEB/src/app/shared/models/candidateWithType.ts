@@ -9,5 +9,9 @@ export interface CandidateWithType {
     candidateType: string;
     candidateLocation: string;
     YearsOfExperience: number;
+    candidateSkills: {
+      skill: string,
+      id: number
+}[]
   }
   

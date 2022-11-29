@@ -7,6 +7,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     AccordionLinkDirective,
     AccordionDirective,
     MaterialModule,
+    MatChipsModule,
     SpinnerComponent,
     LoaderComponent
    ],

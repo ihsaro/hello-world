@@ -14,7 +14,7 @@ import { EntryApplicantTableComponent } from './applicant-table/applicant-entry-
 import { ContractComponent } from './contract/contract.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplicantsViewComponent } from './applicants-view/applicants-view.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
     declarations: [

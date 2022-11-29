@@ -44,6 +44,7 @@
                         <input matInput placeholder="e.g tom" formControlName="location">
                     </mat-form-field>
                 </mat-grid-tile>
+
                 
                
             </mat-grid-list>
@@ -51,6 +52,19 @@
         </form>
     </div>
     
+
+    <div style="margin-bottom: 25px;">
+        <h2 mat-dialog-title style="text-align: left;margin: 0 0 0px;">Skills: </h2>
+                    
+                        <mat-chip-list aria-label="Dog selection">
+                            <ng-container *ngFor="let skill of this.data.data.candidate.candidateSkills">
+                                <mat-chip>
+                                    {{skill.skill}}
+                                </mat-chip>
+                            </ng-container>
+                          </mat-chip-list>
+    </div>
+
     <div>
         <h2 mat-dialog-title style="text-align: left;">Comments: </h2>
     

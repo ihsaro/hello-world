@@ -18,7 +18,8 @@ export class ApplicantsViewComponent implements OnInit {
     type: ['', [Validators.required]],
     email: ['', [Validators.required]],
     years: [0, [Validators.required]],
-    matchRate: [0, [Validators.required]]
+    matchRate: [0, [Validators.required]],
+    skills: [[{skill: '', id: 0}], [Validators.required]]
   })
 
   constructor(private fb:FormBuilder, private dialogRef: MatDialogRef<ApplicantsViewComponent>, public comment: CommentApiService, @Inject(MAT_DIALOG_DATA) public data: {data: JobApplication}) { }
@@ -32,6 +33,7 @@ export class ApplicantsViewComponent implements OnInit {
     "email": this.data.data.candidate.emailAddress,
     "years": this.data.data.candidate.yearsOfExperience,
     "matchRate": this.data.data.matchRate,
+    "skills": this.data.data.candidate.candidateSkills,
   });
   }
 
