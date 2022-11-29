@@ -40,6 +40,12 @@ public class JobPostingApplicationBL : IJobPostingApplicationBL
         var jobPostingApplication = context.JobPostingApplications.Include(x => x.Candidate).Where(x => x.Id == id).First();
         jobPostingApplication.ApplicationPhase = phase;
 
+        if (phase == ApplicationPhase.REJECTED)
+        {
+            var candidate = context.Candidates.Where(x => x.id == jobPostingApplication.Candidate.Id).First();
+            candidate.CandidateType = CandidateType.FUTURE;
+        }
+
         await context.SaveChangesAsync();
 
         EmailDispatcher.SendEmail(jobPostingApplication.Candidate.EmailAddress, $"Hello, this is to inform you that your application has been changed to {phase}");
