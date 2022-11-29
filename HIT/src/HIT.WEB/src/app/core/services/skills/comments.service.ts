@@ -31,14 +31,14 @@ export class CommentApiService {
     return this.GetAll(id).pipe(
     // return of(this.examples).pipe(
       tap((res: string[]) => {
-        console.log(res)
+        console.log(id)
         this.Comments$$.next(res)
       })
     )
   }
 
   create(id: number,newComment: string): Observable<string> {
-   return this.httpClient.post<string>(`${this.api}/${id}`, {newComment})
+   return this.httpClient.post<string>(`${this.api}/${id}`, {comment: newComment})
   }
 
   GetAll(id: number): Observable<string[]> {

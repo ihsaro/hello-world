@@ -14,7 +14,8 @@
   }
   
   .login-form {
-    width: 400px;
+    width: 550px;
+    height: 345px;
   
     mat-form-field {
       width: 90%;

@@ -37,12 +37,12 @@ public class JobPostingApplicationBL : IJobPostingApplicationBL
 
     public async Task<JobPostingApplication> UpdateJobApplicationStatus(int id, ApplicationPhase phase, CancellationToken token = default)
     {
-        var jobPostingApplication = context.JobPostingApplications.Include(x => x.Candidate).Where(x => x.Id == id).First();
+        var jobPostingApplication = context.JobPostingApplications.Include(x => x.Candidate).Include(x => x.JobPosting).Include(x => x.Candidate.CandidateSkills).Include(x => x.JobPostingApplicationComments).Where(x => x.Id == id).First();
         jobPostingApplication.ApplicationPhase = phase;
 
         if (phase == ApplicationPhase.REJECTED)
         {
-            var candidate = context.Candidates.Where(x => x.id == jobPostingApplication.Candidate.Id).First();
+            var candidate = context.Candidates.Where(x => x.Id == jobPostingApplication.Candidate.Id).First();
             candidate.CandidateType = CandidateType.FUTURE;
         }
 
