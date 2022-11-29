@@ -10,7 +10,7 @@ const MENUITEMS = [
   // { label:'Dashboard',  name: '', type: 'link', icon: 'av_timer' },
   
   { label: 'Job Adverts', name: 'job-adverts', type: 'link', icon: 'work' },
-  { label: 'Candidates', name: 'Candidates', type: 'link', icon: 'groups' },
+  { label: 'Candidates', name: 'candidates', type: 'link', icon: 'groups' },
   { label: 'Skills', name: 'skill', type: 'link', icon: 'stars' }
 ];
 

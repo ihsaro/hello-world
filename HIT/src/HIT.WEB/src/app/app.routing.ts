@@ -29,6 +29,10 @@ export const AppRoutes: Routes = [
         loadChildren: () => import('./job-advert/job-advert.module').then(m => m.JobAdvertModule)
       },
       {
+        path: 'candidates',
+        loadChildren: () => import('./candidates/candidates.module').then(m => m.CandidatesModule)
+      },
+      {
         path: 'job/:id/applicants',
         loadChildren: () => import('./applicants/applicants.module').then(m => m.ApplicantsModule)
       }

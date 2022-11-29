@@ -4,9 +4,9 @@ import { JobPosting } from "./JobPosting";
 
 export interface JobApplication {
     id?: number;
-    JobPosting: JobPosting;
-    Candidate: Candidate;
-    MatchRate: number;
+    jobPosting: JobPosting;
+    candidate: Candidate;
+    matchRate: number;
     applicationPhase: ApplicationPhase;
   }
   

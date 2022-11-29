@@ -14,3 +14,11 @@
 .mat-form-field {
     width: 90%;
 }
+
+.mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
+    color: rgb(0 0 0 / 98%);
+}
+
+.mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-label {
+    color: rgb(0 0 0 / 56%);
+}

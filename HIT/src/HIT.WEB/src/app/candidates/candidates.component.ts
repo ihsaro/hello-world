@@ -1,40 +1,39 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { fromEvent, debounceTime, distinctUntilChanged, tap, merge } from 'rxjs';
-import { JobAdvertDataSource } from '../core/services/job-advert/job-advert-datasource';
-import { JobAdvertService } from '../core/services/job-advert/job-advert.service';
+import { CandidatesService } from '../core/services/candidates/candidate.service';
+import { CandidatesDataSource } from '../core/services/candidates/skill-datasource';
 import { SkillsDataSource } from '../core/services/skills/skill-datasource';
 import { SkillsService } from '../core/services/skills/skill.service';
-import { JobPostingWithEnum } from '../shared/models/JobPostingWithEnumName';
+import { CandidateWithType } from '../shared/models/candidateWithType';
 import { SkillWithCategory } from '../shared/models/skill-with-category';
 import { AddSkillFormComponent } from '../skill/add-skill-form/add-skill-form.component';
-import { AddJobFormComponent } from './components/add-job-form/add-job-form.component';
 
 @Component({
-  selector: 'app-job-advert',
-  templateUrl: './job-advert.component.html',
-  styleUrls: ['./job-advert.component.css']
+  selector: 'app-candidates',
+  templateUrl: './candidates.component.html',
+  styleUrls: ['./candidates.component.css']
 })
-export class JobAdvertComponent implements OnInit {
+export class CandidatesComponent implements OnInit, AfterViewInit {
 
-  datasource!: JobAdvertDataSource;
-  displayedColumns: string[] = [ 'Title', 'Guild', 'Status', 'Actions'];
+
+  datasource!: CandidatesDataSource;
+  displayedColumns: string[] = [ 'Name', 'Email','location', 'type', 'actions'];
   totalData!: number;
 
-  @ViewChild(MatTable) table! :MatTable<JobPostingWithEnum>;
+  @ViewChild(MatTable) table! :MatTable<CandidateWithType>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild('input') input!: ElementRef;
 
-  constructor(public dialog: MatDialog, private  jobAdvertService: JobAdvertService, private router: Router) {
+  constructor(public dialog: MatDialog, private candidateService: CandidatesService) {
   }
   ngOnInit(): void {
-    this.datasource = new JobAdvertDataSource(this.jobAdvertService);
-    this.datasource.loadJobPosting('', 'asc', 0, 5)
+    this.datasource = new CandidatesDataSource(this.candidateService);
+    this.datasource.loadCandidate('', 'asc', 0, 5)
   }
 
   ngAfterViewInit() {
@@ -44,7 +43,7 @@ export class JobAdvertComponent implements OnInit {
         distinctUntilChanged(),
         tap(() => {
             this.paginator.pageIndex = 0;
-            this.loadJobAdvertsPage();
+            this.loadSkillsPage();
         })
     )
     .subscribe();
@@ -55,33 +54,25 @@ this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
 // on sort or paginate events, load a new page
 merge(this.sort.sortChange, this.paginator.page)
 .pipe(
-    tap(() => this.loadJobAdvertsPage())
+    tap(() => this.loadSkillsPage())
 )
 .subscribe();
   }
 
-  loadJobAdvertsPage() {
-    console.log(this.paginator.pageIndex,
-      this.paginator.pageSize)
-    this.datasource.loadJobPosting(this.input.nativeElement.value,
+  loadSkillsPage() {
+    this.datasource.loadCandidate(this.input.nativeElement.value,
       this.sort.direction,
       this.paginator.pageIndex,
       this.paginator.pageSize)
 }
 
-
-
   openDialog(): void {
-    this.dialog.open(AddJobFormComponent, {
-      width: '650px',
+    this.dialog.open(AddSkillFormComponent, {
+      width: '450px',
       enterAnimationDuration: '400ms',
       exitAnimationDuration:'200ms',
       autoFocus: false
     });
-  }
-
-  goApplicants(id : number) {
-    this.router.navigate([`dashboard/job/${id}/applicants`])
   }
 
 }

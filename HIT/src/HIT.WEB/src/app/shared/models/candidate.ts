@@ -8,6 +8,6 @@ export interface Candidate {
     linkedInURL: string;
     candidateType: CandidateType;
     candidateLocation: string;
-    YearsOfExperience: number;
+    yearsOfExperience: number;
   }
   

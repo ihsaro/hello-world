@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { NewExampleGridComponent } from 'src/app/example/new-example-grid/new-example-grid.component';
+import { CommentApiService } from 'src/app/core/services/skills/comments.service';
+import { CandidateType } from 'src/app/shared/enum/CandidateType';
 import { JobApplication } from 'src/app/shared/models/jobApplication';
 
 @Component({
@@ -10,17 +11,34 @@ import { JobApplication } from 'src/app/shared/models/jobApplication';
   styleUrls: ['./applicants-view.component.css']
 })
 export class ApplicantsViewComponent implements OnInit {
-
-  exampleForm = this.fb.group({
-    name: [ this.data.Candidate.firstName + " " +  this.data.Candidate.lastName || "" , [Validators.required]],
-    age: ['', [Validators.required]],
-    address: ['', [Validators.required]],
+  com = new FormControl('');
+  applicantForm = this.fb.group({
+    name: [ "" ,  [Validators.required]],
+    location: ['', [Validators.required]],
+    type: ['', [Validators.required]],
+    email: ['', [Validators.required]],
+    years: [0, [Validators.required]],
+    matchRate: [0, [Validators.required]]
   })
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: JobApplication , private fb:FormBuilder, private dialogRef: MatDialogRef<ApplicantsViewComponent>) { }
+  constructor(private fb:FormBuilder, private dialogRef: MatDialogRef<ApplicantsViewComponent>, public comment: CommentApiService, @Inject(MAT_DIALOG_DATA) public data: {data: JobApplication}) { }
 
   ngOnInit(): void {
-    console.log(this.data)
+    this.comment.loadComment(this.data.data.id!).subscribe();
+    this.applicantForm.disable();
+    this.applicantForm.patchValue({"name": this.data.data.candidate.firstName + ' ' + this.data.data.candidate.lastName,
+    "location": this.data.data.candidate.candidateLocation,
+    "type": CandidateType[this.data.data.candidate.candidateType],
+    "email": this.data.data.candidate.emailAddress,
+    "years": this.data.data.candidate.yearsOfExperience,
+    "matchRate": this.data.data.matchRate,
+  });
+  }
+
+  userComment() {
+    this.comment.addComment(this.data.data.id!, this.com.getRawValue()!).subscribe()
+    console.log(this.com.getRawValue())
+    this.com.reset();
   }
 
 }

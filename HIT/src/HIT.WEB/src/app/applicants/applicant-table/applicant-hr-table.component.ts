@@ -20,7 +20,7 @@ import { ApplicantsViewComponent } from '../applicants-view/applicants-view.comp
 })
 export class HrApplicantTableComponent implements OnInit, AfterViewInit {
   datasource!: HrApplicantDataSource;
-  displayedColumns: string[] = [ 'No', 'Name', 'Email', 'Location', 'Actions'];
+  displayedColumns: string[] = ['Name', 'Email', 'Location', 'rate', 'Actions'];
   totalData!: number;
   @Input() userId = 1;
 

@@ -32,11 +32,11 @@ export class EntryApplicantDataSource implements DataSource<JobApplication> {
                         this.length = res.length;
                         if (filterValue != '') {
                           res = res.filter(data => 
-                            data.Candidate.firstName.toLocaleLowerCase().includes(filterValue) || 
-                            data.Candidate.lastName.toLocaleLowerCase().includes(filterValue) || 
-                            data.Candidate.emailAddress.toLocaleLowerCase().includes(filterValue) || 
-                            CandidateType[data.Candidate.candidateType].toLocaleLowerCase().includes(filterValue) || 
-                            data.Candidate.candidateLocation.toLocaleLowerCase().includes(filterValue))
+                            data.candidate.firstName.toLocaleLowerCase().includes(filterValue) || 
+                            data.candidate.lastName.toLocaleLowerCase().includes(filterValue) || 
+                            data.candidate.emailAddress.toLocaleLowerCase().includes(filterValue) || 
+                            CandidateType[data.candidate.candidateType].toLocaleLowerCase().includes(filterValue) || 
+                            data.candidate.candidateLocation.toLocaleLowerCase().includes(filterValue))
                         }
                         switch (direction) {
                           case 'asc': {
