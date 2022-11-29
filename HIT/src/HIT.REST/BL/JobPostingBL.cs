@@ -66,6 +66,8 @@ public class JobPostingBL : IJobPostingBL
             });
         }
 
+        GetAllCandidates(entity.Id, ApplicationPhase.ENTRY, token);
+
         return response;
     }
 

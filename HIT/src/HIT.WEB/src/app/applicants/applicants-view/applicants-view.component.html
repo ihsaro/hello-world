@@ -81,6 +81,7 @@
     
         <div style="margin-left: 27px;" *ngFor="let comment of this.comment.Comments$ | async ">
             <p>{{comment}}</p>
+            <mat-divider></mat-divider>
         </div>
     </div>
 </mat-dialog-content>
